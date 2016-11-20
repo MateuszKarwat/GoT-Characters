@@ -15,6 +15,8 @@
 		20CB1B931DE1C34600A100D7 /* GoTWikiaArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1B921DE1C34600A100D7 /* GoTWikiaArticle.m */; };
 		20CB1B961DE1C39500A100D7 /* GoTWikiaFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1B951DE1C39500A100D7 /* GoTWikiaFetcher.m */; };
 		20CB1BA61DE1C6A100A100D7 /* GoTWikiaArticleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1BA51DE1C6A100A100D7 /* GoTWikiaArticleTests.m */; };
+		20CB1BA91DE1CEF000A100D7 /* ArticlesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1BA81DE1CEF000A100D7 /* ArticlesTableViewController.m */; };
+		20CB1BAC1DE1CF7600A100D7 /* ArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1BAB1DE1CF7600A100D7 /* ArticleTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,10 @@
 		20CB1B9B1DE1C67D00A100D7 /* GoT Characters Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GoT Characters Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20CB1B9F1DE1C67D00A100D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20CB1BA51DE1C6A100A100D7 /* GoTWikiaArticleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoTWikiaArticleTests.m; sourceTree = "<group>"; };
+		20CB1BA71DE1CEF000A100D7 /* ArticlesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticlesTableViewController.h; sourceTree = "<group>"; };
+		20CB1BA81DE1CEF000A100D7 /* ArticlesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticlesTableViewController.m; sourceTree = "<group>"; };
+		20CB1BAA1DE1CF7600A100D7 /* ArticleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleTableViewCell.h; sourceTree = "<group>"; };
+		20CB1BAB1DE1CF7600A100D7 /* ArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +90,10 @@
 		20CB1B781DE1C14E00A100D7 /* GoT Characters */ = {
 			isa = PBXGroup;
 			children = (
-				20CB1B901DE1C33500A100D7 /* GoTWikia */,
+				20CB1BAF1DE1D02100A100D7 /* Controllers */,
+				20CB1BAE1DE1D01B00A100D7 /* Models */,
 				20CB1B791DE1C14E00A100D7 /* Supporting Files */,
-				20CB1B821DE1C14E00A100D7 /* Main.storyboard */,
+				20CB1BAD1DE1CF7F00A100D7 /* Views */,
 			);
 			path = "GoT Characters";
 			sourceTree = "<group>";
@@ -112,7 +119,6 @@
 				20CB1B941DE1C39500A100D7 /* GoTWikiaFetcher.h */,
 				20CB1B951DE1C39500A100D7 /* GoTWikiaFetcher.m */,
 			);
-			name = GoTWikia;
 			path = GoTWikia;
 			sourceTree = "<group>";
 		};
@@ -123,6 +129,36 @@
 				20CB1B9F1DE1C67D00A100D7 /* Info.plist */,
 			);
 			path = "GoT Characters Tests";
+			sourceTree = "<group>";
+		};
+		20CB1BAD1DE1CF7F00A100D7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20CB1BAA1DE1CF7600A100D7 /* ArticleTableViewCell.h */,
+				20CB1BAB1DE1CF7600A100D7 /* ArticleTableViewCell.m */,
+				20CB1B821DE1C14E00A100D7 /* Main.storyboard */,
+			);
+			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		20CB1BAE1DE1D01B00A100D7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				20CB1B901DE1C33500A100D7 /* GoTWikia */,
+			);
+			name = Models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		20CB1BAF1DE1D02100A100D7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				20CB1BA71DE1CEF000A100D7 /* ArticlesTableViewController.h */,
+				20CB1BA81DE1CEF000A100D7 /* ArticlesTableViewController.m */,
+			);
+			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +267,8 @@
 				20CB1B7E1DE1C14E00A100D7 /* AppDelegate.m in Sources */,
 				20CB1B7B1DE1C14E00A100D7 /* main.m in Sources */,
 				20CB1B931DE1C34600A100D7 /* GoTWikiaArticle.m in Sources */,
+				20CB1BAC1DE1CF7600A100D7 /* ArticleTableViewCell.m in Sources */,
+				20CB1BA91DE1CEF000A100D7 /* ArticlesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +476,7 @@
 				20CB1BA41DE1C67D00A100D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
