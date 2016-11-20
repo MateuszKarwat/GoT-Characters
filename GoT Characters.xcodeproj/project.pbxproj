@@ -18,6 +18,8 @@
 		20CB1BA91DE1CEF000A100D7 /* ArticlesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1BA81DE1CEF000A100D7 /* ArticlesTableViewController.m */; };
 		20CB1BAC1DE1CF7600A100D7 /* ArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1BAB1DE1CF7600A100D7 /* ArticleTableViewCell.m */; };
 		20CB1BB21DE1D94B00A100D7 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20CB1BB11DE1D94B00A100D7 /* WebImage.framework */; };
+		20CB1BB61DE1DFE700A100D7 /* FavouriteArticlesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1BB51DE1DFE700A100D7 /* FavouriteArticlesManager.m */; };
+		20CB1BB81DE1E23800A100D7 /* FavouriteArticlesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1BB71DE1E23800A100D7 /* FavouriteArticlesManagerTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,9 @@
 		20CB1BAA1DE1CF7600A100D7 /* ArticleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleTableViewCell.h; sourceTree = "<group>"; };
 		20CB1BAB1DE1CF7600A100D7 /* ArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleTableViewCell.m; sourceTree = "<group>"; };
 		20CB1BB11DE1D94B00A100D7 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
+		20CB1BB41DE1DFE700A100D7 /* FavouriteArticlesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteArticlesManager.h; sourceTree = "<group>"; };
+		20CB1BB51DE1DFE700A100D7 /* FavouriteArticlesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteArticlesManager.m; sourceTree = "<group>"; };
+		20CB1BB71DE1E23800A100D7 /* FavouriteArticlesManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteArticlesManagerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +136,7 @@
 			children = (
 				20CB1BA51DE1C6A100A100D7 /* GoTWikiaArticleTests.m */,
 				20CB1B9F1DE1C67D00A100D7 /* Info.plist */,
+				20CB1BB71DE1E23800A100D7 /* FavouriteArticlesManagerTests.m */,
 			);
 			path = "GoT Characters Tests";
 			sourceTree = "<group>";
@@ -149,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				20CB1B901DE1C33500A100D7 /* GoTWikia */,
+				20CB1BB41DE1DFE700A100D7 /* FavouriteArticlesManager.h */,
+				20CB1BB51DE1DFE700A100D7 /* FavouriteArticlesManager.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -291,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20CB1B961DE1C39500A100D7 /* GoTWikiaFetcher.m in Sources */,
+				20CB1BB61DE1DFE700A100D7 /* FavouriteArticlesManager.m in Sources */,
 				20CB1B7E1DE1C14E00A100D7 /* AppDelegate.m in Sources */,
 				20CB1B7B1DE1C14E00A100D7 /* main.m in Sources */,
 				20CB1B931DE1C34600A100D7 /* GoTWikiaArticle.m in Sources */,
@@ -303,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20CB1BB81DE1E23800A100D7 /* FavouriteArticlesManagerTests.m in Sources */,
 				20CB1BA61DE1C6A100A100D7 /* GoTWikiaArticleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
