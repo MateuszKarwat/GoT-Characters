@@ -12,4 +12,11 @@ NSString * const kArticleTableViewCellReusableIdentifier = @"ArticleTableViewCel
 
 @implementation ArticleTableViewCell
 
+- (IBAction)favouriteStatusButtonTapped:(UIButton *)sender
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didTapFavouriteStatusButton:)]) {
+        [self.delegate didTapFavouriteStatusButton:self];
+    }
+}
+
 @end
