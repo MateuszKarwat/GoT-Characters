@@ -19,6 +19,13 @@ extern NSString * const kArticleTableViewCellReusableIdentifier;
  @param sender A 'ArticleTableViewCell' which contains a tapped button.
  */
 - (void)didTapFavouriteStatusButton:(id)sender;
+
+/**
+ Called when user long press on a 'abstractLabel'.
+
+ @param sender A 'ArticleTableViewCell' which contains a tapped button.
+ */
+- (void)didLongPressOnAbstractLabel:(id)sender;
 @end
 
 @interface ArticleTableViewCell : UITableViewCell

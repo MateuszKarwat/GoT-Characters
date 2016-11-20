@@ -83,6 +83,17 @@ NSUInteger const kMostViewedArticlesDefaultLimit    = 75;
     }
 }
 
+- (void)didLongPressOnAbstractLabel:(id)sender
+{
+    if ([sender isKindOfClass:[ArticleTableViewCell class]]) {
+        ArticleTableViewCell *cell = (ArticleTableViewCell *)sender;
+        cell.abstractLabel.numberOfLines = cell.abstractLabel.numberOfLines ? 0 : 2;
+
+        [self.tableView beginUpdates];
+        [self.tableView endUpdates];
+    }
+}
+
 #pragma mark - Table View Data Source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
