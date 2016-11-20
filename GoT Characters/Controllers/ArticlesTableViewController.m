@@ -28,11 +28,16 @@ NSUInteger const kMostViewedArticlesDefaultLimit    = 75;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 150;
 
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refetchMostViewedArticles) forControlEvents:UIControlEventValueChanged];
+
     [self refetchMostViewedArticles];
 }
 
 - (void)refetchMostViewedArticles
 {
+    [self.refreshControl beginRefreshing];
+
     GoTWikiaFetcher *fetcher = [[GoTWikiaFetcher alloc] init];
     [fetcher fetchMostViewedArticlesFromCategory:kMostViewedArticlesDefaultCategory withLimit:kMostViewedArticlesDefaultLimit completionHandler:^(NSArray *fetchedArticles) {
         if (fetchedArticles != nil) {
