@@ -49,4 +49,16 @@
     XCTAssertTrue([manager getFavouriteArticlesIdentifiers].count == 0);
 }
 
+- (void)testIsArticleAddedToFavourites
+{
+    FavouriteArticlesManager *manager = [[FavouriteArticlesManager alloc] init];
+    GoTWikiaArticle *article = [[GoTWikiaArticle alloc] initWithIdentifier:1 title:@"" abstract:@"" thumbnailURL:@"" relativeURL:@""];
+
+    XCTAssertFalse([manager isArticleAddedToFavourites:article]);
+
+    [manager addArticleToFavourites:article];
+
+    XCTAssertTrue([manager isArticleAddedToFavourites:article]);
+}
+
 @end

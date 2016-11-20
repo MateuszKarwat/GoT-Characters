@@ -36,6 +36,11 @@ NSString * const kFavouriteArticlesUserDefaultsKey = @"FavouriteArticles";
     [self saveFavouriteArticlesIdentifiersToUserDefaults];
 }
 
+- (BOOL)isArticleAddedToFavourites:(GoTWikiaArticle *)article
+{
+    return [self.favouriteArticlesIdentifiers containsObject:[NSNumber numberWithInteger:article.identifier]];
+}
+
 #pragma mark - Private Methods
 
 - (NSMutableArray *)favouriteArticlesIdentifiers

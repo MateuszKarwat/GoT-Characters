@@ -32,4 +32,12 @@
  */
 - (void)removeArticleFromFavourites:(GoTWikiaArticle *)article;
 
+/**
+ Checks if an article is already on favourites list.
+
+ @param article Article which will be check if it's saved to favourites.
+ @return 'YES' if articles is saved in favourites. 'NO' otherwise.
+ */
+- (BOOL)isArticleAddedToFavourites:(GoTWikiaArticle *)article;
+
 @end
