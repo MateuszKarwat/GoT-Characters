@@ -26,7 +26,7 @@
 - (void)testAddArticleToFavourites
 {
     FavouriteArticlesManager *manager = [[FavouriteArticlesManager alloc] init];
-    GoTWikiaArticle *article = [[GoTWikiaArticle alloc] initWithIdentifier:1 title:@"" abstract:@"" thumbnailURL:@"" relativeURL:@""];
+    GoTWikiaArticle *article = [[GoTWikiaArticle alloc] initWithIdentifier:1];
 
     [manager addArticleToFavourites:article];
     [manager addArticleToFavourites:article];
@@ -41,7 +41,7 @@
 - (void)testRemoveArticleFromFavourites
 {
     FavouriteArticlesManager *manager = [[FavouriteArticlesManager alloc] init];
-    GoTWikiaArticle *article = [[GoTWikiaArticle alloc] initWithIdentifier:1 title:@"" abstract:@"" thumbnailURL:@"" relativeURL:@""];
+    GoTWikiaArticle *article = [[GoTWikiaArticle alloc] initWithIdentifier:1];
 
     [manager addArticleToFavourites:article];
     [manager removeArticleFromFavourites:article];
@@ -52,7 +52,7 @@
 - (void)testIsArticleAddedToFavourites
 {
     FavouriteArticlesManager *manager = [[FavouriteArticlesManager alloc] init];
-    GoTWikiaArticle *article = [[GoTWikiaArticle alloc] initWithIdentifier:1 title:@"" abstract:@"" thumbnailURL:@"" relativeURL:@""];
+    GoTWikiaArticle *article = [[GoTWikiaArticle alloc] initWithIdentifier:1];
 
     XCTAssertFalse([manager isArticleAddedToFavourites:article]);
 

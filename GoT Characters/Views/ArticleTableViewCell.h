@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GoTWikiaManagableArticle.h"
 
 extern NSString * const kArticleTableViewCellReusableIdentifier;
 
@@ -28,13 +29,27 @@ extern NSString * const kArticleTableViewCellReusableIdentifier;
 - (void)didLongPressOnAbstractLabel:(id)sender;
 @end
 
+#pragma mark -
+
 @interface ArticleTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *abstractLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *thumbnailImage;
-@property (weak, nonatomic) IBOutlet UIButton *favouriteStatusButton;
-
 @property (weak, nonatomic) id<ArticleTableViewCellDelegate> delegate;
+
+/**
+ Fills all UI elements based on article's properties.
+
+ @param article An article which should be presented.
+ */
+- (void)fillUsingManagableArticle:(GoTWikiaManagableArticle *)article;
+
+/**
+ Changes the status of favourite status button.
+ */
+- (void)favouriteStatusButtonSelected:(BOOL)isSelected;
+
+/**
+ Changes the number of lines in abstract label to be expanded or collapsed.
+ */
+- (void)abstractLabelExpanded:(BOOL)isExpanded;
 
 @end

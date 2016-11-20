@@ -11,25 +11,20 @@
 
 @implementation GoTWikiaArticle
 
-- (id)initWithIdentifier:(NSInteger)identifier
-                   title:(NSString *)title
-                abstract:(NSString *)abstract
-            thumbnailURL:(NSString *)thumbnailURL
-             relativeURL:(NSString *)relativeURL
+- (instancetype)initWithIdentifier:(NSInteger)identifier
 {
     self = [super init];
 
     if (self) {
         _identifier = identifier;
-        _title = title;
-        _abstract = abstract;
-        _thumbnailURL = thumbnailURL;
-        _relativeURL = relativeURL;
-        _favourite = NO;
-        _absoluteURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", kGoTWikiaBaseURL, relativeURL]];
     }
 
     return self;
+}
+
+- (NSURL *)absoluteURL
+{
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", kGoTWikiaBaseURL, self.relativeURL]];
 }
 
 @end

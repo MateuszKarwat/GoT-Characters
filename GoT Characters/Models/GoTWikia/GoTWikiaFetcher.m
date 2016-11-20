@@ -54,11 +54,14 @@ NSString * const kGoTWikiaJSONArticleRelativeURLKey = @"url";
         NSArray *articles = [json objectForKey:kGoTWikiaJSONArticlesKey];
 
         for (NSDictionary *article in articles) {
-            [newArticles addObject:[[GoTWikiaArticle alloc] initWithIdentifier:[[article objectForKey:kGoTWikiaJSONArticleIdentifierKey] integerValue]
-                                                                         title:[article objectForKey:kGoTWikiaJSONArticleTitleKey]
-                                                                      abstract:[article objectForKey:kGoTWikiaJSONArticleAbstractKey]
-                                                                  thumbnailURL:[article objectForKey:kGoTWikiaJSONArticleThumbnailKey]
-                                                                   relativeURL:[article objectForKey:kGoTWikiaJSONArticleRelativeURLKey]]];
+            GoTWikiaArticle *newArticle = [[GoTWikiaArticle alloc] initWithIdentifier:[[article objectForKey:kGoTWikiaJSONArticleIdentifierKey] integerValue]];
+
+            newArticle.title = [article objectForKey:kGoTWikiaJSONArticleTitleKey];
+            newArticle.abstract = [article objectForKey:kGoTWikiaJSONArticleAbstractKey];
+            newArticle.thumbnailURL = [article objectForKey:kGoTWikiaJSONArticleThumbnailKey];
+            newArticle.relativeURL = [article objectForKey:kGoTWikiaJSONArticleRelativeURLKey];
+
+            [newArticles addObject:newArticle];
         }
     }
 

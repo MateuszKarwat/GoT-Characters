@@ -6,10 +6,10 @@
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
 
-#import <WebImage/UIImageView+WebCache.h>
 #import "ArticlesTableViewController.h"
 #import "ArticleTableViewCell.h"
 #import "GoTWikiaArticle.h"
+#import "GoTWikiaManagableArticle.h"
 #import "GoTWikiaFetcher.h"
 #import "FavouriteArticlesManager.h"
 #import "ArticleDetailsViewController.h"
@@ -53,6 +53,7 @@ CGFloat     const kFilterFavouriteArticlesButtonSize = 30.f;
     [self refetchMostViewedArticles];
 }
 
+#pragma mark - Article Access
 
 // Tries to fetch new articles using GoTWikiaFetcher and handle refresh indicator.
 - (void)refetchMostViewedArticles
@@ -62,7 +63,12 @@ CGFloat     const kFilterFavouriteArticlesButtonSize = 30.f;
     GoTWikiaFetcher *fetcher = [[GoTWikiaFetcher alloc] init];
     [fetcher fetchMostViewedArticlesFromCategory:kMostViewedArticlesDefaultCategory withLimit:kMostViewedArticlesDefaultLimit completionHandler:^(NSArray *fetchedArticles) {
         if (fetchedArticles != nil) {
-            self.mostViewedArticles = fetchedArticles;
+            NSMutableArray *newArticles = [[NSMutableArray alloc] init];
+            for (GoTWikiaArticle *article in fetchedArticles) {
+                [newArticles addObject:[[GoTWikiaManagableArticle alloc] initWithArticle:article]];
+            }
+
+            self.mostViewedArticles = newArticles;
             [self reloadFavouriteArticles];
         }
 
@@ -75,7 +81,7 @@ CGFloat     const kFilterFavouriteArticlesButtonSize = 30.f;
 {
     NSMutableArray *newFavouriteArticles = [[NSMutableArray alloc] init];
 
-    for (GoTWikiaArticle *article in self.mostViewedArticles) {
+    for (GoTWikiaManagableArticle *article in self.mostViewedArticles) {
         if ([self.favouriteArticlesManager isArticleAddedToFavourites:article]) {
             article.favourite = [self.favouriteArticlesManager isArticleAddedToFavourites:article];
             [newFavouriteArticles addObject:article];
@@ -89,9 +95,16 @@ CGFloat     const kFilterFavouriteArticlesButtonSize = 30.f;
 
 // Returns an article which should be displayed at given 'indexPath' based on an information
 // if favourites filter is enabled.
-- (GoTWikiaArticle *)articleForCurrentFavouriteFilterStatusWithIndexPath:(NSIndexPath *)indexPath
+- (GoTWikiaManagableArticle *)articleForCurrentFavouriteFilterStatusWithIndexPath:(NSIndexPath *)indexPath
 {
     return self.showOnlyFavouriteArticles ? self.favouriteArticles[indexPath.row] : self.mostViewedArticles[indexPath.row];
+}
+
+// Returns an article which is displayed in a specific cell.
+- (GoTWikiaManagableArticle *)articleForCell:(ArticleTableViewCell *)cell
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    return [self articleForCurrentFavouriteFilterStatusWithIndexPath:indexPath];
 }
 
 #pragma mark - User Interface
@@ -124,28 +137,23 @@ CGFloat     const kFilterFavouriteArticlesButtonSize = 30.f;
     }
 }
 
-#pragma mark - ArticleTableViewCell Delegate
+#pragma mark - ArticleTableViewCellDelegate
 
 - (void)didTapFavouriteStatusButton:(id)sender
 {
     if ([sender isKindOfClass:[ArticleTableViewCell class]]) {
         ArticleTableViewCell *cell = (ArticleTableViewCell *)sender;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        GoTWikiaManagableArticle *article = [self articleForCell:cell];
 
-        GoTWikiaArticle *article = [self articleForCurrentFavouriteFilterStatusWithIndexPath:indexPath];
         article.favourite = !article.favourite;
-
-        UIImage *newStatusImage = nil;
 
         if (article.isFavourite) {
             [self.favouriteArticlesManager addArticleToFavourites:article];
-            newStatusImage = [UIImage imageNamed:@"FavouriteButtonSelected"];
         } else {
             [self.favouriteArticlesManager removeArticleFromFavourites:article];
-            newStatusImage = [UIImage imageNamed:@"FavouriteButtonNotSelected"];
         }
 
-        [cell.favouriteStatusButton setImage:newStatusImage forState:UIControlStateNormal];
+        [cell favouriteStatusButtonSelected:article.isFavourite];
 
         [self reloadFavouriteArticles];
     }
@@ -155,9 +163,12 @@ CGFloat     const kFilterFavouriteArticlesButtonSize = 30.f;
 {
     if ([sender isKindOfClass:[ArticleTableViewCell class]]) {
         ArticleTableViewCell *cell = (ArticleTableViewCell *)sender;
-        cell.abstractLabel.numberOfLines = cell.abstractLabel.numberOfLines ? 0 : 2;
+        GoTWikiaManagableArticle *article = [self articleForCell:cell];
+
+        article.expanded = !article.isExpanded;
 
         [self.tableView beginUpdates];
+        [cell abstractLabelExpanded:article.isExpanded];
         [self.tableView endUpdates];
     }
 }
@@ -172,15 +183,10 @@ CGFloat     const kFilterFavouriteArticlesButtonSize = 30.f;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ArticleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kArticleTableViewCellReusableIdentifier forIndexPath:indexPath];
-    GoTWikiaArticle *article = [self articleForCurrentFavouriteFilterStatusWithIndexPath:indexPath];
+    GoTWikiaManagableArticle *article = [self articleForCurrentFavouriteFilterStatusWithIndexPath:indexPath];
 
-    cell.titleLabel.text = article.title;
-    cell.abstractLabel.text = article.abstract;
-    [cell.favouriteStatusButton setImage:[UIImage imageNamed:article.isFavourite ? @"FavouriteButtonSelected" : @"FavouriteButtonNotSelected"]
-                                forState:UIControlStateNormal];
-    [cell.thumbnailImage sd_setImageWithURL:[NSURL URLWithString:article.thumbnailURL]
-                           placeholderImage:[UIImage imageNamed:@"CharacterImagePlaceholder"]];
-
+    [cell fillUsingManagableArticle:article];
+    
     cell.delegate = self;
 
     return cell;
@@ -190,12 +196,12 @@ CGFloat     const kFilterFavouriteArticlesButtonSize = 30.f;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([sender isKindOfClass:[ArticleTableViewCell class]]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        if (indexPath) {
-            if ([segue.identifier isEqualToString:kShowArticleDetailsSegue] &&
-                [segue.destinationViewController isKindOfClass:[ArticleDetailsViewController class]]) {
-                    ArticleDetailsViewController *advc = segue.destinationViewController;
-                    advc.article = [self articleForCurrentFavouriteFilterStatusWithIndexPath:indexPath];
+        if ([segue.identifier isEqualToString:kShowArticleDetailsSegue] &&
+            [segue.destinationViewController isKindOfClass:[ArticleDetailsViewController class]]) {
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+            if (indexPath) {
+                ArticleDetailsViewController *advc = segue.destinationViewController;
+                advc.article = [self articleForCurrentFavouriteFilterStatusWithIndexPath:indexPath];
             }
         }
     }

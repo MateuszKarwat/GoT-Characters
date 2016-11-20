@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GoTWikiaArticle.h"
+#import "GoTWikiaManagableArticle.h"
 
 @interface ArticleDetailsViewController : UIViewController
 
 /**
  An article which will be displayed when a view appears.
  */
-@property GoTWikiaArticle *article;
+@property GoTWikiaManagableArticle *article;
 
 @end

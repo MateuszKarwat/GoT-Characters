@@ -21,6 +21,7 @@
 		20CB1BB61DE1DFE700A100D7 /* FavouriteArticlesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1BB51DE1DFE700A100D7 /* FavouriteArticlesManager.m */; };
 		20CB1BB81DE1E23800A100D7 /* FavouriteArticlesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1BB71DE1E23800A100D7 /* FavouriteArticlesManagerTests.m */; };
 		20CB1BBB1DE1F8E000A100D7 /* ArticleDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1BBA1DE1F8E000A100D7 /* ArticleDetailsViewController.m */; };
+		6080C4BD1DE413490031D666 /* GoTWikiaManagableArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6080C4BC1DE413490031D666 /* GoTWikiaManagableArticle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		20CB1BB71DE1E23800A100D7 /* FavouriteArticlesManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteArticlesManagerTests.m; sourceTree = "<group>"; };
 		20CB1BB91DE1F8E000A100D7 /* ArticleDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleDetailsViewController.h; sourceTree = "<group>"; };
 		20CB1BBA1DE1F8E000A100D7 /* ArticleDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleDetailsViewController.m; sourceTree = "<group>"; };
+		6080C4BB1DE413490031D666 /* GoTWikiaManagableArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoTWikiaManagableArticle.h; sourceTree = "<group>"; };
+		6080C4BC1DE413490031D666 /* GoTWikiaManagableArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoTWikiaManagableArticle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +133,8 @@
 				20CB1B921DE1C34600A100D7 /* GoTWikiaArticle.m */,
 				20CB1B941DE1C39500A100D7 /* GoTWikiaFetcher.h */,
 				20CB1B951DE1C39500A100D7 /* GoTWikiaFetcher.m */,
+				6080C4BB1DE413490031D666 /* GoTWikiaManagableArticle.h */,
+				6080C4BC1DE413490031D666 /* GoTWikiaManagableArticle.m */,
 			);
 			path = GoTWikia;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 			files = (
 				20CB1B961DE1C39500A100D7 /* GoTWikiaFetcher.m in Sources */,
 				20CB1BB61DE1DFE700A100D7 /* FavouriteArticlesManager.m in Sources */,
+				6080C4BD1DE413490031D666 /* GoTWikiaManagableArticle.m in Sources */,
 				20CB1BBB1DE1F8E000A100D7 /* ArticleDetailsViewController.m in Sources */,
 				20CB1B7E1DE1C14E00A100D7 /* AppDelegate.m in Sources */,
 				20CB1B7B1DE1C14E00A100D7 /* main.m in Sources */,
