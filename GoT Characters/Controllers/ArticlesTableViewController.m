@@ -11,12 +11,14 @@
 #import "ArticleTableViewCell.h"
 #import "GoTWikiaArticle.h"
 #import "GoTWikiaFetcher.h"
+#import "FavouriteArticlesManager.h"
 
 NSString * const kMostViewedArticlesDefaultCategory = @"Characters";
 NSUInteger const kMostViewedArticlesDefaultLimit    = 75;
 
-@interface ArticlesTableViewController ()
+@interface ArticlesTableViewController () <ArticleTableViewCellDelegate>
 @property NSArray *mostViewedArticles;
+@property FavouriteArticlesManager *favouriteArticlesManager;
 @end
 
 @implementation ArticlesTableViewController
@@ -31,6 +33,8 @@ NSUInteger const kMostViewedArticlesDefaultLimit    = 75;
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refetchMostViewedArticles) forControlEvents:UIControlEventValueChanged];
 
+    self.favouriteArticlesManager = [[FavouriteArticlesManager alloc] init];
+
     [self refetchMostViewedArticles];
 }
 
@@ -43,6 +47,10 @@ NSUInteger const kMostViewedArticlesDefaultLimit    = 75;
         if (fetchedArticles != nil) {
             self.mostViewedArticles = fetchedArticles;
 
+            for (GoTWikiaArticle *article in fetchedArticles) {
+                article.favourite = [self.favouriteArticlesManager isArticleAddedToFavourites:article];
+            }
+
             [self.tableView reloadData];
         }
 
@@ -50,7 +58,32 @@ NSUInteger const kMostViewedArticlesDefaultLimit    = 75;
     }];
 }
 
-#pragma mark - Table view data source
+#pragma mark - ArticleTableViewCell Delegate
+
+- (void)didTapFavouriteStatusButton:(id)sender
+{
+    if ([sender isKindOfClass:[ArticleTableViewCell class]]) {
+        ArticleTableViewCell *cell = (ArticleTableViewCell *)sender;
+        NSIndexPath *path = [self.tableView indexPathForCell:cell];
+        GoTWikiaArticle *article = self.mostViewedArticles[path.row];
+
+        UIImage *newStatusImage = nil;
+
+        article.favourite = !article.favourite;
+
+        if (article.isFavourite) {
+            [self.favouriteArticlesManager addArticleToFavourites:article];
+            newStatusImage = [UIImage imageNamed:@"FavouriteButtonSelected"];
+        } else {
+            [self.favouriteArticlesManager removeArticleFromFavourites:article];
+            newStatusImage = [UIImage imageNamed:@"FavouriteButtonNotSelected"];
+        }
+
+        [cell.favouriteStatusButton setImage:newStatusImage forState:UIControlStateNormal];
+    }
+}
+
+#pragma mark - Table View Data Source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -67,7 +100,9 @@ NSUInteger const kMostViewedArticlesDefaultLimit    = 75;
     cell.abstractLabel.text = article.abstract;
     [cell.favouriteStatusButton setImage:[UIImage imageNamed:article.isFavourite ? @"FavouriteButtonSelected" : @"FavouriteButtonNotSelected"] forState:UIControlStateNormal];
     [cell.thumbnailImage sd_setImageWithURL:[NSURL URLWithString:article.thumbnailURL] placeholderImage:[UIImage imageNamed:@"CharacterImagePlaceholder"]];
-    
+
+    cell.delegate = self;
+
     return cell;
 }
 
