@@ -6,6 +6,7 @@
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
 
+#import <WebImage/UIImageView+WebCache.h>
 #import "ArticlesTableViewController.h"
 #import "ArticleTableViewCell.h"
 #import "GoTWikiaArticle.h"
@@ -60,6 +61,7 @@ NSUInteger const kMostViewedArticlesDefaultLimit    = 75;
     cell.titleLabel.text = article.title;
     cell.abstractLabel.text = article.abstract;
     [cell.favouriteStatusButton setImage:[UIImage imageNamed:article.isFavourite ? @"FavouriteButtonSelected" : @"FavouriteButtonNotSelected"] forState:UIControlStateNormal];
+    [cell.thumbnailImage sd_setImageWithURL:[NSURL URLWithString:article.thumbnailURL] placeholderImage:[UIImage imageNamed:@"CharacterImagePlaceholder"]];
     
     return cell;
 }

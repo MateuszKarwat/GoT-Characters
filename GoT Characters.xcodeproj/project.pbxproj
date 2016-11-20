@@ -17,6 +17,7 @@
 		20CB1BA61DE1C6A100A100D7 /* GoTWikiaArticleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1BA51DE1C6A100A100D7 /* GoTWikiaArticleTests.m */; };
 		20CB1BA91DE1CEF000A100D7 /* ArticlesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1BA81DE1CEF000A100D7 /* ArticlesTableViewController.m */; };
 		20CB1BAC1DE1CF7600A100D7 /* ArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1BAB1DE1CF7600A100D7 /* ArticleTableViewCell.m */; };
+		20CB1BB21DE1D94B00A100D7 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20CB1BB11DE1D94B00A100D7 /* WebImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		20CB1BA81DE1CEF000A100D7 /* ArticlesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticlesTableViewController.m; sourceTree = "<group>"; };
 		20CB1BAA1DE1CF7600A100D7 /* ArticleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleTableViewCell.h; sourceTree = "<group>"; };
 		20CB1BAB1DE1CF7600A100D7 /* ArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleTableViewCell.m; sourceTree = "<group>"; };
+		20CB1BB11DE1D94B00A100D7 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20CB1BB21DE1D94B00A100D7 /* WebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +78,7 @@
 				20CB1B781DE1C14E00A100D7 /* GoT Characters */,
 				20CB1B9C1DE1C67D00A100D7 /* GoT Characters Tests */,
 				20CB1B771DE1C14E00A100D7 /* Products */,
+				20CB1BB01DE1D94B00A100D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,7 +142,6 @@
 				20CB1BAB1DE1CF7600A100D7 /* ArticleTableViewCell.m */,
 				20CB1B821DE1C14E00A100D7 /* Main.storyboard */,
 			);
-			name = Views;
 			path = Views;
 			sourceTree = "<group>";
 		};
@@ -147,7 +150,6 @@
 			children = (
 				20CB1B901DE1C33500A100D7 /* GoTWikia */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -157,8 +159,15 @@
 				20CB1BA71DE1CEF000A100D7 /* ArticlesTableViewController.h */,
 				20CB1BA81DE1CEF000A100D7 /* ArticlesTableViewController.m */,
 			);
-			name = Controllers;
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		20CB1BB01DE1D94B00A100D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				20CB1BB11DE1D94B00A100D7 /* WebImage.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +180,7 @@
 				20CB1B721DE1C14E00A100D7 /* Sources */,
 				20CB1B731DE1C14E00A100D7 /* Frameworks */,
 				20CB1B741DE1C14E00A100D7 /* Resources */,
+				20CB1BB31DE1D96200A100D7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -257,6 +267,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20CB1BB31DE1D96200A100D7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/WebImage.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		20CB1B721DE1C14E00A100D7 /* Sources */ = {
@@ -404,6 +431,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "GoT Characters/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -416,6 +447,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "GoT Characters/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
