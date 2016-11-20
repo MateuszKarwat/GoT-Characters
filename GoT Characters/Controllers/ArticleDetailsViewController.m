@@ -32,7 +32,7 @@
 
 - (IBAction)openInSafariButtonTapped:(UIButton *)sender
 {
-    // TODO: Implement this feature.
+    [[UIApplication sharedApplication] openURL:self.article.absoluteURL];
 }
 
 @end
