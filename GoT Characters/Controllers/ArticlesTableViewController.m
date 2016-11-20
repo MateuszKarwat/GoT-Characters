@@ -12,9 +12,12 @@
 #import "GoTWikiaArticle.h"
 #import "GoTWikiaFetcher.h"
 #import "FavouriteArticlesManager.h"
+#import "ArticleDetailsViewController.h"
 
 NSString * const kMostViewedArticlesDefaultCategory = @"Characters";
 NSUInteger const kMostViewedArticlesDefaultLimit    = 75;
+
+NSString * const kShowArticleDetailsSegue = @"ShowArticleDetailsSegue";
 
 @interface ArticlesTableViewController () <ArticleTableViewCellDelegate>
 @property NSArray *mostViewedArticles;
@@ -109,12 +112,29 @@ NSUInteger const kMostViewedArticlesDefaultLimit    = 75;
 
     cell.titleLabel.text = article.title;
     cell.abstractLabel.text = article.abstract;
-    [cell.favouriteStatusButton setImage:[UIImage imageNamed:article.isFavourite ? @"FavouriteButtonSelected" : @"FavouriteButtonNotSelected"] forState:UIControlStateNormal];
-    [cell.thumbnailImage sd_setImageWithURL:[NSURL URLWithString:article.thumbnailURL] placeholderImage:[UIImage imageNamed:@"CharacterImagePlaceholder"]];
+    [cell.favouriteStatusButton setImage:[UIImage imageNamed:article.isFavourite ? @"FavouriteButtonSelected" : @"FavouriteButtonNotSelected"]
+                                forState:UIControlStateNormal];
+    [cell.thumbnailImage sd_setImageWithURL:[NSURL URLWithString:article.thumbnailURL]
+                           placeholderImage:[UIImage imageNamed:@"CharacterImagePlaceholder"]];
 
     cell.delegate = self;
 
     return cell;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([sender isKindOfClass:[ArticleTableViewCell class]]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        if (indexPath) {
+            if ([segue.identifier isEqualToString:kShowArticleDetailsSegue] &&
+                [segue.destinationViewController isKindOfClass:[ArticleDetailsViewController class]]) {
+                    ArticleDetailsViewController *advc = segue.destinationViewController;
+                    advc.article = self.mostViewedArticles[indexPath.row];
+            }
+        }
+    }
 }
 
 @end
