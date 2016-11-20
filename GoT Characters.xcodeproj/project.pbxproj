@@ -12,21 +12,48 @@
 		20CB1B841DE1C14E00A100D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CB1B821DE1C14E00A100D7 /* Main.storyboard */; };
 		20CB1B861DE1C14E00A100D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20CB1B851DE1C14E00A100D7 /* Assets.xcassets */; };
 		20CB1B891DE1C14E00A100D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CB1B871DE1C14E00A100D7 /* LaunchScreen.storyboard */; };
+		20CB1B931DE1C34600A100D7 /* GoTWikiaArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1B921DE1C34600A100D7 /* GoTWikiaArticle.m */; };
+		20CB1B961DE1C39500A100D7 /* GoTWikiaFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1B951DE1C39500A100D7 /* GoTWikiaFetcher.m */; };
+		20CB1BA61DE1C6A100A100D7 /* GoTWikiaArticleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CB1BA51DE1C6A100A100D7 /* GoTWikiaArticleTests.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		20CB1BA01DE1C67D00A100D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 20CB1B6E1DE1C14E00A100D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20CB1B751DE1C14E00A100D7;
+			remoteInfo = "GoT Characters";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		20CB1B761DE1C14E00A100D7 /* GoT Characters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GoT Characters.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20CB1B7A1DE1C14E00A100D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		20CB1B7C1DE1C14E00A100D7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		20CB1B7D1DE1C14E00A100D7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = AppDelegate.m; sourceTree = "<group>"; };
+		20CB1B7C1DE1C14E00A100D7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		20CB1B7D1DE1C14E00A100D7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		20CB1B831DE1C14E00A100D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20CB1B851DE1C14E00A100D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20CB1B881DE1C14E00A100D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20CB1B8A1DE1C14E00A100D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20CB1B911DE1C34600A100D7 /* GoTWikiaArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoTWikiaArticle.h; sourceTree = "<group>"; };
+		20CB1B921DE1C34600A100D7 /* GoTWikiaArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoTWikiaArticle.m; sourceTree = "<group>"; };
+		20CB1B941DE1C39500A100D7 /* GoTWikiaFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoTWikiaFetcher.h; sourceTree = "<group>"; };
+		20CB1B951DE1C39500A100D7 /* GoTWikiaFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoTWikiaFetcher.m; sourceTree = "<group>"; };
+		20CB1B9B1DE1C67D00A100D7 /* GoT Characters Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GoT Characters Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20CB1B9F1DE1C67D00A100D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20CB1BA51DE1C6A100A100D7 /* GoTWikiaArticleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoTWikiaArticleTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		20CB1B731DE1C14E00A100D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20CB1B981DE1C67D00A100D7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				20CB1B781DE1C14E00A100D7 /* GoT Characters */,
+				20CB1B9C1DE1C67D00A100D7 /* GoT Characters Tests */,
 				20CB1B771DE1C14E00A100D7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				20CB1B761DE1C14E00A100D7 /* GoT Characters.app */,
+				20CB1B9B1DE1C67D00A100D7 /* GoT Characters Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,6 +84,7 @@
 		20CB1B781DE1C14E00A100D7 /* GoT Characters */ = {
 			isa = PBXGroup;
 			children = (
+				20CB1B901DE1C33500A100D7 /* GoTWikia */,
 				20CB1B791DE1C14E00A100D7 /* Supporting Files */,
 				20CB1B821DE1C14E00A100D7 /* Main.storyboard */,
 			);
@@ -72,6 +102,27 @@
 				20CB1B7A1DE1C14E00A100D7 /* main.m */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		20CB1B901DE1C33500A100D7 /* GoTWikia */ = {
+			isa = PBXGroup;
+			children = (
+				20CB1B911DE1C34600A100D7 /* GoTWikiaArticle.h */,
+				20CB1B921DE1C34600A100D7 /* GoTWikiaArticle.m */,
+				20CB1B941DE1C39500A100D7 /* GoTWikiaFetcher.h */,
+				20CB1B951DE1C39500A100D7 /* GoTWikiaFetcher.m */,
+			);
+			name = GoTWikia;
+			path = GoTWikia;
+			sourceTree = "<group>";
+		};
+		20CB1B9C1DE1C67D00A100D7 /* GoT Characters Tests */ = {
+			isa = PBXGroup;
+			children = (
+				20CB1BA51DE1C6A100A100D7 /* GoTWikiaArticleTests.m */,
+				20CB1B9F1DE1C67D00A100D7 /* Info.plist */,
+			);
+			path = "GoT Characters Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +145,24 @@
 			productReference = 20CB1B761DE1C14E00A100D7 /* GoT Characters.app */;
 			productType = "com.apple.product-type.application";
 		};
+		20CB1B9A1DE1C67D00A100D7 /* GoT Characters Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20CB1BA21DE1C67D00A100D7 /* Build configuration list for PBXNativeTarget "GoT Characters Tests" */;
+			buildPhases = (
+				20CB1B971DE1C67D00A100D7 /* Sources */,
+				20CB1B981DE1C67D00A100D7 /* Frameworks */,
+				20CB1B991DE1C67D00A100D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20CB1BA11DE1C67D00A100D7 /* PBXTargetDependency */,
+			);
+			name = "GoT Characters Tests";
+			productName = "GoT Characters Tests";
+			productReference = 20CB1B9B1DE1C67D00A100D7 /* GoT Characters Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -106,6 +175,11 @@
 					20CB1B751DE1C14E00A100D7 = {
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
+					};
+					20CB1B9A1DE1C67D00A100D7 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 20CB1B751DE1C14E00A100D7;
 					};
 				};
 			};
@@ -123,6 +197,7 @@
 			projectRoot = "";
 			targets = (
 				20CB1B751DE1C14E00A100D7 /* GoT Characters */,
+				20CB1B9A1DE1C67D00A100D7 /* GoT Characters Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -138,6 +213,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		20CB1B991DE1C67D00A100D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -145,12 +227,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20CB1B961DE1C39500A100D7 /* GoTWikiaFetcher.m in Sources */,
 				20CB1B7E1DE1C14E00A100D7 /* AppDelegate.m in Sources */,
 				20CB1B7B1DE1C14E00A100D7 /* main.m in Sources */,
+				20CB1B931DE1C34600A100D7 /* GoTWikiaArticle.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20CB1B971DE1C67D00A100D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20CB1BA61DE1C6A100A100D7 /* GoTWikiaArticleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		20CB1BA11DE1C67D00A100D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 20CB1B751DE1C14E00A100D7 /* GoT Characters */;
+			targetProxy = 20CB1BA01DE1C67D00A100D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		20CB1B821DE1C14E00A100D7 /* Main.storyboard */ = {
@@ -286,6 +386,30 @@
 			};
 			name = Release;
 		};
+		20CB1BA31DE1C67D00A100D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "GoT Characters Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mateuszkarwat.GoT-Characters-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoT Characters.app/GoT Characters";
+			};
+			name = Debug;
+		};
+		20CB1BA41DE1C67D00A100D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "GoT Characters Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mateuszkarwat.GoT-Characters-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoT Characters.app/GoT Characters";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -306,6 +430,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		20CB1BA21DE1C67D00A100D7 /* Build configuration list for PBXNativeTarget "GoT Characters Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20CB1BA31DE1C67D00A100D7 /* Debug */,
+				20CB1BA41DE1C67D00A100D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
